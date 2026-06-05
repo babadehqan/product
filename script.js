@@ -1,66 +1,78 @@
-/*const products = [
-    {
-        id: 1,
-        name: "Afghan Momtaz Black Tea",
-        price: "6$",
-        image:"images/photo.jpg" ,
-        decription: "Natural black tea for daily using"
-    },
-    {
-        id: 2,
-        name: "Afghan Momtaz Green Tea",
-        price: "10$",
-        image: "images/photo.jpg" ,
-        decription: "Natural Green tea for daily using"
-    },
-];
-*/
+body{
+margin:0;
+font-family:Arial;
+background:#0b0b0b;
+color:white;
+}
 
-const menu = document.getElementById("menu");
-const menuItem = document.getElementById("menuItems")
+nav{
+display:flex;
+justify-content:space-between;
+padding:15px;
+background:black;
+position:fixed;
+width:100%;
+top:0;
+}
 
-menu.onclick =() => {
-    menuItem.style.display = 
-    menuItem.style.display === "flex" ? "none": "flex";
-};
+.logo{
+color:gold;
+}
 
-const image =[
-    "images/photo.jpg",
-    "images/photo.jpg",
-    "images/photo.jpg"
-];
+.menu a{
+color:#aaa;
+margin-left:10px;
+text-decoration:none;
+}
 
-let index =0;
-setInterval(() => {
-    index = (index +1) % image.length;
-    document.getElementById("slider-img").src = image[index];
-},3000);
+.menu a:hover{
+color:gold;
+}
 
-const fades = document.querySelectorAll(".fade");
-window.addEventListener("scroll", () => {
-    fades.forEach(el => {
-        if(el.getBoundingClientRect().top < window.innerHeight -100){
-            el.classList.add("show");
-        }
-    })
-})
+.hero{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+background:#111;
+}
 
-/*
-window.onload = function(){
-const container = document.getElementById("product-list");
+.card{
+text-align:center;
+margin:40px auto;
+max-width:300px;
+}
 
-products.forEach(product => {
-    const card = document.createElement("div");
-    card.className ="card";
+.card img{
+width:100%;
+border-radius:10px;
+}
 
-    card.innerHTML = `
-    <img src="${product.image}" alt="${product.name}">
-    <h2>${product.name}</h2>
-    <p>${product.decription}</p>
-    <span>${product.price}</span>
-    `;
+input,textarea{
+display:block;
+margin:10px auto;
+padding:10px;
+width:250px;
+}
 
-    container.appendChild(card);
-});
-};
-*/
+button{
+padding:10px 20px;
+background:gold;
+border:none;
+cursor:pointer;
+}
+
+/* animation */
+.fade{
+opacity:0;
+transform:translateY(30px);
+transition:0.6s;
+}
+
+.fade.show{
+opacity:1;
+transform:translateY(0);
+}
