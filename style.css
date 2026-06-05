@@ -3,6 +3,7 @@ margin:0;
 font-family:Arial;
 background:#0b0b0b;
 color:white;
+scroll-behavior:smooth;
 }
 
 /* NAV */
@@ -10,21 +11,29 @@ nav{
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:15px;
+padding:15px 25px;
 background:black;
 position:fixed;
-width:100%;
 top:0;
+width:100%;
+z-index:1000;
+box-sizing:border-box;
 }
 
 .logo{
 color:gold;
+font-weight:bold;
+}
+
+.menu{
+display:flex;
+gap:15px;
 }
 
 .menu a{
 color:#aaa;
-margin-left:10px;
 text-decoration:none;
+font-size:14px;
 }
 
 .menu a:hover{
@@ -44,11 +53,6 @@ font-size:50px;
 
 .hero p{
 color:#ccc;
-}
-
-.desc{
-max-width:500px;
-margin:auto;
 }
 
 /* SECTION */
@@ -82,6 +86,7 @@ border:1px solid #333;
 color:white;
 }
 
+/* BUTTON */
 button{
 padding:10px 20px;
 background:gold;
@@ -89,37 +94,29 @@ border:none;
 cursor:pointer;
 }
 
-/* SLIDER */
-.slider{
-position:relative;
-max-width:300px;
-margin:auto;
+/* SOCIAL */
+.social{
+margin-top:20px;
+display:flex;
+justify-content:center;
+gap:15px;
+flex-wrap:wrap;
 }
 
-.slider img{
-width:100%;
-border-radius:10px;
+.social a{
+color:#aaa;
+text-decoration:none;
 }
 
-.prev,.next{
-position:absolute;
-top:50%;
-transform:translateY(-50%);
-background:#111;
-color:white;
-border:none;
-padding:8px;
-cursor:pointer;
+.social a:hover{
+color:gold;
 }
 
-.prev{left:-40px;}
-.next{right:-40px;}
-
-/* MOBILE MENU */
+/* MOBILE */
 .hamburger{
 display:none;
+font-size:24px;
 color:gold;
-font-size:22px;
 cursor:pointer;
 }
 
@@ -143,16 +140,4 @@ display:flex;
 .hamburger{
 display:block;
 }
-}
-
-/* ANIMATION */
-.fade{
-opacity:0;
-transform:translateY(30px);
-transition:0.7s ease;
-}
-
-.fade.show{
-opacity:1;
-transform:translateY(0);
 }
