@@ -10,106 +10,74 @@
 
 <body>
 
+<!-- NAV -->
 <nav>
-<div class="logo">ARKOZYA</div>
+  <div class="logo">ARKOZYA</div>
 
-<div class="menu">
-<a href="#home">Home</a>
-<a href="#energy">Energy</a>
-<a href="#tea">Tea</a>
-<a href="#contact">Contact</a>
-</div>
+  <div class="menu">
+    <a href="#home">Home</a>
+    <a href="#energy">Energy</a>
+    <a href="#tea">Tea</a>
+    <a href="#contact">Contact</a>
+  </div>
 
-<div class="hamburger" onclick="toggleMenu()">☰</div>
+  <div class="hamburger" onclick="toggleMenu()">☰</div>
 </nav>
 
 <!-- HOME -->
-<section id="home" class="fade hero">
+<section id="home" class="section hero">
+  <h1>Arkozya</h1>
+  <p>Fuel Your Focus</p>
+  <p>Premium Energy Drink & Black Tea brand</p>
 
-<h1>Arkozya</h1>
-
-<p>Fuel Your Focus</p>
-
-<p class="desc">
-Premium Energy Drink & Black Tea brand focused on power, clarity and lifestyle energy.
-</p>
-
-<!-- IMAGE (PUT YOUR LINK HERE) -->
-<img src="" alt="hero image">
-
+  <img src="image/hero.jpg" alt="">
 </section>
 
 <!-- ENERGY -->
-<section id="energy" class="fade section">
+<section id="energy" class="section">
+  <h2>Energy ⚡</h2>
 
-<h2>Energy ⚡</h2>
-
-<div class="box">
-<img src="" alt="energy image">
-
-<div>
-<h3>Energy Drink</h3>
-<p>High performance drink for focus and strength.</p>
-</div>
-
-</div>
-
+  <div class="box">
+    <img src="image/energy.jpg" alt="">
+    <div>
+      <h3>Energy Drink</h3>
+      <p>Boost your focus and performance.</p>
+    </div>
+  </div>
 </section>
 
 <!-- TEA -->
-<section id="tea" class="fade section">
+<section id="tea" class="section">
+  <h2>Black Tea 🍃</h2>
 
-<h2>Black Tea 🍃</h2>
-
-<div class="box">
-<img src="" alt="tea image">
-
-<div>
-<h3>Premium Tea</h3>
-<p>Natural black tea with rich aroma and taste.</p>
-</div>
-
-</div>
-
-</section>
-
-<!-- PRODUCTS SLIDER -->
-<section class="fade section">
-
-<h2>Products Preview</h2>
-
-<div class="slider">
-
-<img id="slide" src="">
-
-<button class="prev" onclick="prev()">‹</button>
-<button class="next" onclick="next()">›</button>
-
-</div>
-
+  <div class="box">
+    <img src="image/tea.jpg" alt="">
+    <div>
+      <h3>Premium Tea</h3>
+      <p>Natural taste and calm energy.</p>
+    </div>
+  </div>
 </section>
 
 <!-- CONTACT -->
-<section id="contact" class="fade section">
+<section id="contact" class="section">
+  <h2>Contact</h2>
 
-<h2>Contact</h2>
+  <input placeholder="Name">
+  <input placeholder="Email">
+  <textarea placeholder="Message"></textarea>
 
-<input placeholder="Name">
-<input placeholder="Email">
-<textarea placeholder="Message"></textarea>
+  <button>Send</button>
 
-<button>Send</button>
-
+  <!-- SOCIAL -->
+  <div class="social">
+    <a href="https://wa.me/1234567890" target="_blank">WhatsApp</a>
+    <a href="https://instagram.com" target="_blank">Instagram</a>
+    <a href="https://facebook.com" target="_blank">Facebook</a>
+    <a href="https://tiktok.com" target="_blank">TikTok</a>
+  </div>
 </section>
 
-
-
-  
 <script src="script.js"></script>
-</body>  
-   
-
-
-
-
+</body>
 </html>
