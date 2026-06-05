@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Arkozya Tea</title>
+<title>Arkozya</title>
 
 <link rel="stylesheet" href="style.css">
 </head>
@@ -11,34 +11,87 @@
 <body>
 
 <nav>
-<div class="logo">ARKOZYA TEA</div>
+<div class="logo">ARKOZYA</div>
 
 <div class="menu">
 <a href="#home">Home</a>
-<a href="#products">Products</a>
+<a href="#energy">Energy</a>
+<a href="#tea">Tea</a>
 <a href="#contact">Contact</a>
 </div>
 
 <div class="hamburger" onclick="toggleMenu()">☰</div>
 </nav>
 
-<section id="home" class="hero fade">
-<h1>Arkozya Tea</h1>
-<p>Premium Black Tea with natural taste and quality energy for daily life.</p>
+<!-- HOME -->
+<section id="home" class="fade hero">
+
+<h1>Arkozya</h1>
+
+<p>Fuel Your Focus</p>
+
+<p class="desc">
+Premium Energy Drink & Black Tea brand focused on power, clarity and lifestyle energy.
+</p>
+
+<!-- IMAGE (PUT YOUR LINK HERE) -->
+<img src="" alt="hero image">
+
 </section>
 
-<section id="products" class="fade">
-<h2>Products</h2>
+<!-- ENERGY -->
+<section id="energy" class="fade section">
 
-<div class="card">
-<img src="tea.jpg">
-<h3>Black Tea</h3>
-<p>Rich aroma and natural taste.</p>
+<h2>Energy ⚡</h2>
+
+<div class="box">
+<img src="" alt="energy image">
+
+<div>
+<h3>Energy Drink</h3>
+<p>High performance drink for focus and strength.</p>
+</div>
+
 </div>
 
 </section>
 
-<section id="contact" class="fade">
+<!-- TEA -->
+<section id="tea" class="fade section">
+
+<h2>Black Tea 🍃</h2>
+
+<div class="box">
+<img src="" alt="tea image">
+
+<div>
+<h3>Premium Tea</h3>
+<p>Natural black tea with rich aroma and taste.</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- PRODUCTS SLIDER -->
+<section class="fade section">
+
+<h2>Products Preview</h2>
+
+<div class="slider">
+
+<img id="slide" src="">
+
+<button class="prev" onclick="prev()">‹</button>
+<button class="next" onclick="next()">›</button>
+
+</div>
+
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="fade section">
+
 <h2>Contact</h2>
 
 <input placeholder="Name">
@@ -49,6 +102,14 @@
 
 </section>
 
+
+
+  
 <script src="script.js"></script>
-</body>
+</body>  
+   
+
+
+
+
 </html>
