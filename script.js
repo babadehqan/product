@@ -1,78 +1,45 @@
-body{
-margin:0;
-font-family:Arial;
-background:#0b0b0b;
-color:white;
+/* MENU */
+function toggleMenu(){
+document.querySelector(".menu").classList.toggle("open");
 }
 
-nav{
-display:flex;
-justify-content:space-between;
-padding:15px;
-background:black;
-position:fixed;
-width:100%;
-top:0;
+/* SCROLL ANIMATION */
+const elements = document.querySelectorAll(".fade");
+
+window.addEventListener("scroll", () => {
+elements.forEach(el => {
+if(el.getBoundingClientRect().top < window.innerHeight - 100){
+el.classList.add("show");
+}
+});
+});
+
+/* SLIDER */
+let images = [
+"",
+"",
+""
+];
+
+let i = 0;
+let slide = document.getElementById("slide");
+
+function show(){
+if(slide && images[i]){
+slide.src = images[i];
+}
 }
 
-.logo{
-color:gold;
+function next(){
+i = (i + 1) % images.length;
+show();
 }
 
-.menu a{
-color:#aaa;
-margin-left:10px;
-text-decoration:none;
+function prev(){
+i = (i - 1 + images.length) % images.length;
+show();
 }
 
-.menu a:hover{
-color:gold;
-}
+setInterval(next, 4000);
 
-.hero{
-height:100vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
-padding:20px;
-background:#111;
-}
-
-.card{
-text-align:center;
-margin:40px auto;
-max-width:300px;
-}
-
-.card img{
-width:100%;
-border-radius:10px;
-}
-
-input,textarea{
-display:block;
-margin:10px auto;
-padding:10px;
-width:250px;
-}
-
-button{
-padding:10px 20px;
-background:gold;
-border:none;
-cursor:pointer;
-}
-
-/* animation */
-.fade{
-opacity:0;
-transform:translateY(30px);
-transition:0.6s;
-}
-
-.fade.show{
-opacity:1;
-transform:translateY(0);
-}
+show();
