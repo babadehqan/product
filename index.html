@@ -1,83 +1,986 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr" class="scroll-smooth">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Arkozya</title>
-
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arkozia - Premium International Trading</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            gold: '#D4AF37',
+                            goldDark: '#AA820A',
+                            dark: '#111827',
+                            forest: '#0B2516',
+                            cream: '#FAF9F6',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts for global styling -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Custom smooth transitions */
+        .lang-transition {
+            transition: all 0.3s ease-in-out;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #111827;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #D4AF37;
+            border-radius: 4px;
+        }
+    </style>
 </head>
+<body class="bg-brand-cream text-gray-800 font-sans overflow-x-hidden">
 
-<body>
+    <!-- Language & Navigation State Database -->
+    <script>
+        const translations = {
+            en: {
+                dir: 'ltr',
+                brand: 'ARKOZIA',
+                tagline: 'Bridging Continents with Uncompromising Quality',
+                home: 'Home',
+                about: 'About Us',
+                products: 'Our Products',
+                certificates: 'Certificates',
+                contact: 'Contact Us',
+                
+                heroTitle: 'Energy, Taste, and Nature on a Global Journey',
+                heroDesc: 'Arkozia operates in the production and export of energy drinks, black tea, natural oils, saffron, rice, and spices, supplying high-quality products from trusted sources to international markets',
+                
+                heroBtn:'Explore Products',
+                energyTitle: "Energy Production Process",
+                energyDesc: "We use modern and sustainable production systems.",
 
-<!-- NAV -->
-<nav>
-  <div class="logo">ARKOZYA</div>
+                   philosophyTitle: "Our Philosophy",
+    philosophyDesc: 'We believe in quality, trust, and long-term partnerships across global markets',
 
-  <div class="menu">
-    <a href="#home">Home</a>
-    <a href="#energy">Energy</a>
-    <a href="#tea">Tea</a>
-    <a href="#contact">Contact</a>
-  </div>
+                
 
-  <div class="hamburger" onclick="toggleMenu()">☰</div>
-</nav>
 
-<!-- HOME -->
-<section id="home" class="section hero">
-  <h1>Arkozya</h1>
-  <p>Fuel Your Focus</p>
-  <p>Premium Energy Drink & Black Tea brand</p>
 
-  <img src="https://github.com/babadehqan/product/blob/main/images/background.jpg.jpg" alt="">
-</section>
+                missionTitle: "Mission",
+missionText: "To deliver premium agricultural and natural products from trusted origins to global markets with consistent quality and reliability.",
 
-<!-- ENERGY -->
-<section id="energy" class="section">
-  <h2>Energy ⚡</h2>
+visionTitle: "Vision",
+visionText: "To become a recognized international trading brand connecting Asia to Europe through excellence and sustainability.",
 
-  <div class="box">
-    <img src="image/energy.jpg" alt="">
-    <div>
-      <h3>Energy Drink</h3>
-      <p>Boost your focus and performance.</p>
+valuesTitle: "Core Values",
+value1: "Quality Assurance",
+value2: "Transparency",
+value3: "Long-term Partnerships",
+value4: "Sustainable Sourcing",
+
+
+
+                
+
+                aboutTitle: 'About Arkozia',
+                aboutDesc1: 'Founded with a vision to connect the fertile lands and ancient valleys of Central Asia with the premium markets of Europe, Arkozia stands as a symbol of trust, purity, and sustainability.',
+                aboutDesc2: 'We specialize in direct-source partnership with local farming cooperatives, ensuring fair trade practices while maintaining the absolute highest standard of quality control from harvest to delivery.',
+                
+                prodTitle: 'Premium Portfolio',
+                prodSubtitle: 'Sourced naturally, selected meticulously for the global connoisseur.',
+                prod1: 'Arkozya Eenrgy Drink',
+                prod1Desc: 'Hand-harvested Grade A Red Saffron, known for its intense aroma, rich color, and exceptional medicinal properties.',
+                prod2: 'Sun-Dried Fruits & Nuts',
+                prod2Desc: 'Premium almonds, wild figs, and raisins dried naturally under the generous Asian sun, packed with nutrients.',
+                prod3: 'Lapis Lazuli & Gemstones',
+                prod3Desc: 'Exquisite deep-blue Lapis Lazuli and raw emeralds sourced ethically from the ancient mines of the Hindu Kush.',
+                
+                certTitle: 'International Standards',
+                certSubtitle: 'Our commitment to quality is validated by globally recognized authorities.',
+                cert1: 'ISO 22000 Certified',
+                cert1Desc: 'Highest standard in food safety management systems.',
+                cert2: 'EU Organic Standard',
+                cert2Desc: 'Certified organic production meeting strict European regulations.',
+                cert3: 'Fairtrade Partnership',
+                cert3Desc: 'Supporting local growers with ethical and sustainable trade.',
+                
+                contactTitle: 'Get in Touch',
+                contactSubtitle: 'Connect with our global offices in Europe and Asia.',
+                namePl: 'Your Full Name',
+                emailPl: 'Your Email Address',
+                msgPl: 'How can we help you?',
+                sendBtn: 'Send Message',
+                successMsg: 'Thank you! Your inquiry has been received. Our global desk will contact you shortly.',
+                
+                footerText: '© 2026 Arkozia Group. All rights reserved. Cultivating trust across borders.'
+            },
+            fa: {
+                dir: 'rtl',
+                brand: 'آرکوزیا',
+                tagline: 'پیوند قاره‌ها با کیفیتی بی‌نظیر و بی‌بدیل',
+                home: 'صفحه اصلی',
+                about: 'درباره ما',
+                products: 'محصولات ما',
+                certificates: 'گواهینامه‌ها',
+                contact: 'ارتباط با ما',
+                
+                heroTitle: 'انرژی، طعم و طبیعت در یک مسیر جهانی',
+                heroDesc: 'آرکوزیا در زمینه تولید و صادرات نوشیدنی‌های انرژی‌زا، چای سیاه، روغن‌های طبیعی، زعفران، برنج و مصالحه‌جات فعالیت می‌کند و محصولات باکیفیت را از منابع معتبر به بازارهای بین‌المللی عرضه می‌نماید',
+               
+                heroBtn: 'مشاهده محصولات',
+                
+                energyTitle: "فرآیند تولید انرژی",
+                energyDesc: "ما از سیستم‌های مدرن و پایدار برای تولید استفاده می‌کنیم.",
+
+                aboutTitle: 'درباره آرکوزیا',
+                aboutDesc1: 'آرکوزیا با چشم‌انداز اتصال دشت‌های حاصلخیز و دره‌های باستانی آسیا به بازارهای ممتاز اروپا تاسیس شد و امروز نمادی از اعتماد، پاکی و پایداری است.',
+                aboutDesc2: 'تخصص ما همکاری مستقیم با کشاورزان محلی است تا ضمن رعایت اصول تجارت عادلانه، بالاترین معیارهای کنترل کیفیت را از برداشت تا تحویل نهایی تضمین کنیم.',
+                
+
+
+                  philosophyTitle: "فلسفه ما",
+    philosophyDesc: "ما به کیفیت، اعتماد و همکاری‌های بلندمدت در بازارهای جهانی باور داریم",
+
+
+missionTitle: "ماموریت",
+missionText: "ارائه محصولات طبیعی و زراعتی باکیفیت از منابع معتبر به بازارهای جهانی با حفظ کیفیت و اعتماد.",
+
+visionTitle: "چشم‌انداز",
+visionText: "تبدیل شدن به یک برند معتبر بین‌المللی که آسیا را به اروپا از طریق کیفیت و پایداری متصل می‌کند.",
+
+valuesTitle: "ارزش‌ها",
+value1: "تضمین کیفیت",
+value2: "شفافیت",
+value3: "همکاری بلندمدت",
+value4: "تامین پایدار",
+
+
+
+                prodTitle: 'محصولات استراتژیک',
+                prodSubtitle: 'تولید شده در دل طبیعت، گلچین‌شده با وسواس ویژه برای بازارهای جهانی.',
+                prod1: 'زعفران شاهانه ارگانیک',
+                prod1Desc: 'زعفران سرخ نگین با گرید صادراتی، برداشته شده با دست، دارای عطر فوق‌العاده، رنگ‌دهی بی‌نظیر و خواص درمانی استثنایی.',
+                prod2: 'میوه‌جات خشک و خسته‌باب',
+                prod2Desc: 'بادام ممتاز، انجیر کوهی و کشمش‌های طبیعی که در زیر آفتاب تابان آسیا خشک شده و سرشار از مواد مغذی هستند.',
+                prod3: 'لاجورد و سنگ‌های قیمتی',
+                prod3Desc: 'سنگ‌های نفیس لاجورد با رنگ آبی عمیق و زمردهای طبیعی استخراج شده با اصول اخلاقی از معادن باستانی هندوکش.',
+                
+                certTitle: 'گواهینامه‌های بین‌المللی',
+                certSubtitle: 'تعهد ما به کیفیت بالا توسط نهادهای معتبر جهانی تایید شده است.',
+                cert1: 'گواهینامه ISO 22000',
+                cert1Desc: 'بالاترین سطح استاندارد بین‌المللی در سیستم‌های مدیریت ایمنی غذا.',
+                cert2: 'استاندارد ارگانیک اروپا',
+                cert2Desc: 'گواهی رسمی کشاورزی ارگانیک مطابق با قوانین سخت‌گیرانه اتحادیه اروپا.',
+                cert3: 'تجارت عادلانه (Fairtrade)',
+                cert3Desc: 'حمایت از کشاورزان محلی و تضمین تجارت اخلاقی و پایدار.',
+                
+                contactTitle: 'پل‌های ارتباطی ما',
+                contactSubtitle: 'با دفاتر منطقه‌ای ما در اروپا و آسیا در تماس شوید.',
+                namePl: 'نام و نام خانوادگی شما',
+                emailPl: 'آدرس ایمیل شما',
+                msgPl: 'چگونه می‌توانیم به شما کمک کنیم؟',
+                sendBtn: 'ارسال پیام',
+                successMsg: 'تشکر از شما! پیام شما دریافت شد. همکاران بخش بین‌الملل ما به‌زودی با شما تماس خواهند گرفت.',
+                
+                footerText: '© ۲۰۲۶ گروه تجاری آرکوزیا. تمامی حقوق محفوظ است. کاشت بذر اعتماد فراتر از مرزها.'
+            },
+            fr: {
+                dir: 'ltr',
+                brand: 'ARKOZIA',
+                tagline: 'Relier les continents avec une qualité sans compromis',
+                home: 'Accueil',
+                about: 'À Propos',
+                products: 'Nos Produits',
+                certificates: 'Certificats',
+                contact: 'Contact',
+                
+
+energyTitle: "Processus de production d'énergie",
+energyDesc: "Nous utilisons des systèmes modernes et durables.",
+
+                heroTitle: 'Énergie, goût et nature sur un parcours mondial',
+                heroDesc: 'Arkozia est spécialisée dans la production et l’exportation de boissons énergisantes, de thé noir, d’huiles naturelles, de safran, de riz et d’épices, et fournit des produits de haute qualité issus de sources fiables vers les marchés internationaux. ',
+                heroBtn: 'Découvrir Nos Produits',
+                
+                aboutTitle: 'À Propos d\'Arkozia',
+                aboutDesc1: 'Fondée avec la vision de connecter les terres fertiles et les vallées anciennes d\'Asie centrale aux marchés haut de gamme d\'Europe, Arkozia est un symbole de confiance, de pureté et de durabilité.',
+                aboutDesc2: 'Nous sommes spécialisés dans le partenariat direct avec les coopératives agricoles locales, garantissant des pratiques de commerce équitable tout en maintenant les normes de contrôle qualité les plus strictes.',
+                
+
+                 philosophyTitle: "Notre philosophie",
+    philosophyDesc: 'Nous croyons en la qualité, la confiance et des partenariats durables sur les marchés mondiaux',
+
+
+
+
+
+                missionTitle: "Mission",
+missionText: "Fournir des produits agricoles et naturels premium issus de sources fiables aux marchés mondiaux avec qualité et constance.",
+
+visionTitle: "Vision",
+visionText: "Devenir une marque internationale reconnue reliant l’Asie à l’Europe grâce à l’excellence et la durabilité.",
+
+valuesTitle: "Valeurs",
+value1: "Assurance qualité",
+value2: "Transparence",
+value3: "Partenariats à long terme",
+value4: "Approvisionnement durable",
+
+
+
+                prodTitle: 'Portefeuille Premium',
+                prodSubtitle: 'Sourcing naturel, sélectionné méticuleusement pour les connaisseurs du monde entier.',
+                prod1: 'Safran Royal Biologique',
+                prod1Desc: 'Safran rouge de catégorie A récolté à la main, réputé pour son arôme intense, sa couleur riche et ses propriétés médicinales exceptionnelles.',
+                prod2: 'Fruits Secs et Noix',
+                prod2Desc: 'Amandes de première qualité, figues sauvages et raisins secs séchés naturellement sous le soleil généreux d\'Asie, riches en nutriments.',
+                prod3: 'Lapis-lazuli & Pierres Précieuses',
+                prod3Desc: 'Exquis Lapis-Lazuli d\'un bleu profond et émeraudes brutes provenant de sources éthiques des anciennes mines de l\'Hindou Kouch.',
+                
+                certTitle: 'Normes Internationales',
+                certSubtitle: 'Notre engagement envers la qualité est validé par des autorités mondialement reconnues.',
+                cert1: 'Certifié ISO 22000',
+                cert1Desc: 'La norme la plus élevée en matière de systèmes de gestion de la sécurité alimentaire.',
+                cert2: 'Norme Biologique de l\'UE',
+                cert2Desc: 'Production biologique certifiée répondant aux réglementations européennes strictes.',
+                cert3: 'Partenariat Fairtrade',
+                cert3Desc: 'Soutenir les producteurs locaux grâce à un commerce éthique et durable.',
+                
+                contactTitle: 'Contactez-Nous',
+                contactSubtitle: 'Connectez-vous avec nos bureaux mondiaux en Europe et en Asie.',
+                namePl: 'Votre Nom Complet',
+                emailPl: 'Votre Adresse E-mail',
+                msgPl: 'Comment pouvons-nous vous aider ?',
+                sendBtn: 'Envoyer le Message',
+                successMsg: 'Merci ! Votre demande a été reçue. Notre bureau mondial vous contactera sous peu.',
+                
+                footerText: '© 2026 Groupe Arkozia. Tous droits réservés. Cultiver la confiance au-delà des frontières.'
+            },
+            nl: {
+                dir: 'ltr',
+                brand: 'ARKOZIA',
+                tagline: 'Continenten verbinden met compromisloze kwaliteit',
+                home: 'Home',
+                about: 'Over Ons',
+                products: 'Producten',
+                certificates: 'Certificaten',
+                contact: 'Contact',
+
+                energyTitle: "Energieproductieproces",
+energyDesc: "Wij gebruiken moderne en duurzame productiesystemen.",
+                
+                heroTitle: '“Energie, smaak en natuur op een wereldwijde reis”',
+                heroDesc: 'Arkozia is actief in de productie en export van energiedranken, zwarte thee, natuurlijke oliën, saffraan, rijst en specerijen, en levert hoogwaardige producten uit betrouwbare bronnen aan internationale markten.',
+                heroBtn: 'Ontdek Producten',
+                
+                aboutTitle: 'Over Arkozia',
+                aboutDesc1: 'Opgericht met de visie om de vruchtbare gronden en oude valleien van Centraal-Azië te verbinden met de premium markten van Europa. Arkozia staat voor vertrouwen, puurheid en duurzaamheid.',
+                aboutDesc2: 'Wij zijn gespecialiseerd in directe partnerschappen met lokale boerencoöperaties, wat zorgt voor eerlijke handel en de allerhoogste kwaliteitscontrole van oogst tot levering.',
+              
+
+
+
+                 philosophyTitle: "Onze filosofie",
+    philosophyDesc: 'Wij geloven in kwaliteit, vertrouwen en langdurige samenwerkingen op wereldwijde markten',
+
+
+
+
+                missionTitle: "Missie",
+missionText: "Het leveren van premium landbouw- en natuurproducten van betrouwbare oorsprong aan wereldwijde markten met consistente kwaliteit.",
+
+visionTitle: "Visie",
+visionText: "Een erkend internationaal handelsmerk worden dat Azië met Europa verbindt door kwaliteit en duurzaamheid.",
+
+valuesTitle: "Waarden",
+value1: "Kwaliteitsgarantie",
+value2: "Transparantie",
+value3: "Langdurige samenwerking",
+value4: "Duurzame inkoop",
+
+
+
+                prodTitle: 'Premium Portfolio',
+                prodSubtitle: 'Natuurlijk gewonnen, zorgvuldig geselecteerd voor de wereldwijde kenner.',
+                prod1: 'Biologische Royal Saffraan',
+                prod1Desc: 'Met de hand geoogste klasse A rode saffraan, bekend om zijn intense aroma, rijke kleur en uitzonderlijke medicinale eigenschappen.',
+                prod2: 'Zongedroogde Vruchten & Noten',
+                prod2Desc: 'Premium amandelen, wilde vijgen en rozijnen, natuurlijk gedroogd onder de gulle Aziatische zon, boordevol voedingsstoffen.',
+                prod3: 'Lapis Lazuli & Edelstenen',
+                prod3Desc: 'Prachtige diepblauwe Lapis Lazuli en ruwe smaragden, ethisch gewonnen uit de eeuwenoude mijnen van de Hindoekoesj.',
+                
+                certTitle: 'Internationale Normen',
+                certSubtitle: 'Onze toewijding aan kwaliteit wordt bevestigd door wereldwijd erkende instanties.',
+                cert1: 'ISO 22000 Gecertificeerd',
+                cert1Desc: 'De hoogste norm op het gebied van managementsystemen voor voedselveiligheid.',
+                cert2: 'EU Biologische Norm',
+                cert2Desc: 'Gecertificeerde biologische productie die voldoet aan strenge Europese regelgeving.',
+                cert3: 'Fairtrade Partnerschap',
+                cert3Desc: 'Ondersteuning van lokale telers met ethische en duurzame handel.',
+                
+                contactTitle: 'Neem Contact Op',
+                contactSubtitle: 'Verbind met onze kantoren in Europa en Azië.',
+                namePl: 'Uw Volledige Naam',
+                emailPl: 'Uw E-mailadres',
+                msgPl: 'Hoe kunnen we u helpen?',
+                sendBtn: 'Bericht Verzenden',
+                successMsg: 'Bedankt! Uw aanvraag is ontvangen. Onze internationale afdeling neemt snel contact met u op.',
+                
+                footerText: '© 2026 Arkozia Group. Alle rechten voorbehouden. Bouwen aan vertrouwen over grenzen heen.'
+            }
+        };
+
+        let currentLang = 'en'; // Default starting in Persian for the builder, can toggle to EN, FR, NL
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            const data = translations[lang];
+            
+            // Set HTML attributes
+            document.documentElement.lang = lang;
+            document.documentElement.dir = data.dir;
+            
+            // Toggle active classes on buttons
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                if(btn.dataset.lang === lang) {
+                    btn.classList.add('bg-brand-gold', 'text-brand-dark');
+                    btn.classList.remove('text-gray-400', 'hover:text-white');
+                } else {
+                    btn.classList.remove('bg-brand-gold', 'text-brand-dark');
+                    btn.classList.add('text-gray-400', 'hover:text-white');
+                }
+            });
+
+            // Set translation values on elements with [data-i18n]
+            document.querySelectorAll('[data-i18n]').forEach(elem => {
+                const key = elem.getAttribute('data-i18n');
+                if (data[key]) {
+                    elem.innerText = data[key];
+                }
+            });
+
+            // Handle placeholders
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(elem => {
+                const key = elem.getAttribute('data-i18n-placeholder');
+                if (data[key]) {
+                    elem.placeholder = data[key];
+                }
+            });
+
+            // Adjust layout alignments based on language direction
+            const textAlignmentElements = document.querySelectorAll('.text-align-dynamic');
+            textAlignmentElements.forEach(elem => {
+                if (data.dir === 'rtl') {
+                    elem.style.textAlign = 'right';
+                } else {
+                    elem.style.textAlign = 'left';
+                }
+            });
+        }
+
+        window.onload = function() {
+            setLanguage('en'); // Initialize to Persian
+        }
+
+const images = [
+  "images/product1.jpg",
+  "images/product2.jpg",
+  "images/product3.jpg",
+  "images/product4.jpg"
+];
+
+
+    </script>
+    <script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const slides = document.querySelectorAll(".slide");
+
+    if (!slides.length) return;
+
+    let index = 0;
+
+    setInterval(() => {
+
+        slides[index].classList.remove("opacity-100");
+        slides[index].classList.add("opacity-0");
+
+        index = (index + 1) % slides.length;
+
+        slides[index].classList.remove("opacity-0");
+        slides[index].classList.add("opacity-100");
+
+    }, 3000);
+
+});
+</script>
+
+    <!-- Header Section -->
+    <header class="sticky top-0 z-50 bg-brand-dark text-white shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="#home" class="flex items-center gap-2">
+                        <span class="text-2xl font-bold tracking-widest text-brand-gold" data-i18n="brand">ARKOZIA</span>
+                        <div class="h-2 w-2 rounded-full bg-brand-gold"></div>
+                    </a>
+                </div>
+
+                <!-- Navigation Links -->
+                <nav class="hidden md:flex space-x-8 rtl:space-x-reverse text-sm font-medium">
+                    <a href="#home" class="hover:text-brand-gold transition-colors duration-200" data-i18n="home">Home</a>
+                    <a href="#about" class="hover:text-brand-gold transition-colors duration-200" data-i18n="about">About Us</a>
+                    <a href="#products" class="hover:text-brand-gold transition-colors duration-200" data-i18n="products">Products</a>
+                    <a href="#certificates" class="hover:text-brand-gold transition-colors duration-200" data-i18n="certificates">Certificates</a>
+                    <a href="#contact" class="hover:text-brand-gold transition-colors duration-200" data-i18n="contact">Contact</a>
+                </nav>
+
+                <!-- Language Switcher & Mobile Menu Trigger -->
+                <div class="flex items-center gap-3">
+                    <div class="bg-gray-800 p-1 rounded-full flex gap-1 text-xs">
+                        <button onclick="setLanguage('fa')" data-lang="fa" class="lang-btn px-3 py-1 rounded-full transition-all duration-300 font-medium">FA</button>
+                        <button onclick="setLanguage('en')" data-lang="en" class="lang-btn px-3 py-1 rounded-full transition-all duration-300 font-medium">EN</button>
+                        <button onclick="setLanguage('fr')" data-lang="fr" class="lang-btn px-3 py-1 rounded-full transition-all duration-300 font-medium">FR</button>
+                        <button onclick="setLanguage('nl')" data-lang="nl" class="lang-btn px-3 py-1 rounded-full transition-all duration-300 font-medium">NL</button>
+                    </div>
+
+                    <!-- Mobile Menu button -->
+                    <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="md:hidden text-gray-400 hover:text-white focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu, show/hide based on menu state. -->
+        <div id="mobile-menu" class="hidden md:hidden bg-brand-dark border-t border-gray-800 transition-all duration-300">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 text-center">
+                <a href="#home" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md hover:bg-gray-800 hover:text-brand-gold" data-i18n="home">Home</a>
+                <a href="#about" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md hover:bg-gray-800 hover:text-brand-gold" data-i18n="about">About Us</a>
+                <a href="#products" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md hover:bg-gray-800 hover:text-brand-gold" data-i18n="products">Products</a>
+                <a href="#certificates" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md hover:bg-gray-800 hover:text-brand-gold" data-i18n="certificates">Certificates</a>
+                <a href="#contact" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md hover:bg-gray-800 hover:text-brand-gold" data-i18n="contact">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-[85vh] flex items-center bg-brand-dark text-white overflow-hidden">
+        <!-- Abstract Top-right Glow -->
+        <div class="absolute top-0 right-0 -mt-20 -mr-20 w-80 h-80 bg-brand-gold opacity-10 blur-3xl rounded-full"></div>
+        <!-- Abstract Bottom-left Glow -->
+        <div class="absolute bottom-0 left-0 -mb-20 -ml-20 w-96 h-96 bg-brand-gold opacity-5 blur-3xl rounded-full"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-20 w-full">
+            <div class="grid md:grid-cols-12 gap-12 items-center">
+                
+                <!-- Hero Content -->
+                <div class="md:col-span-7 space-y-6 text-align-dynamic">
+                    <div class="inline-flex items-center gap-2 border border-brand-gold/40 px-4 py-1.5 rounded-full text-brand-gold text-xs tracking-wider uppercase bg-brand-gold/5 font-semibold">
+                        <span class="inline-block w-2 h-2 rounded-full bg-brand-gold animate-pulse"></span>
+                        <span data-i18n="tagline">Bridging Continents with Uncompromising Quality</span>
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight" data-i18n="heroTitle">
+                        Pure Heritage, Global Excellence
+                    </h1>
+                    <p class="text-lg text-gray-300 max-w-xl leading-relaxed font-light" data-i18n="heroDesc">
+                        Arkozia bridges Asia and Europe, sourcing and delivering the finest organic agricultural products and natural gems to elite global markets.
+                    </p>
+                    <div class="pt-4 flex flex-wrap gap-4 justify-start">
+                        <a href="#products" class="bg-brand-gold hover:bg-brand-goldDark text-brand-dark font-semibold px-8 py-3.5 rounded-lg shadow-lg hover:shadow-brand-gold/20 transition-all duration-300 inline-block text-center" data-i18n="heroBtn">
+                            Explore Products
+                        </a>
+                        <a href="#about" class="border border-white/20 hover:border-white/50 px-8 py-3.5 rounded-lg text-white font-medium hover:bg-white/5 transition-all duration-300 inline-block text-center" data-i18n="about">
+                            About Us
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Hero Illustrative Image Box -->
+                <div class="md:col-span-5 flex justify-center">
+    <div class="relative w-full max-w-sm aspect-square rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+        
+        <!-- Slides -->
+        <img class="slide absolute inset-0 w-full h-full object-cover opacity-100 transition-opacity duration-700"
+             src="image/background.jpg.jpg">
+
+        <img class="slide absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-700"
+             src="image/energy.jpg">
+
+        <img class="slide absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-700"
+             src="image/tea.jpg">
+
     </div>
-  </div>
-</section>
+</div>
+                            </div>
+                            
+                            <!-- Central Icon or Concept Graphics -->
+                            <div class="my-auto py-6 flex justify-center">
+                                <svg class="w-32 h-32 text-brand-gold/85" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <!-- Stylized Global Network representing Silk Road Route / International bridge -->
+                                    <circle cx="50" cy="50" r="40" stroke="currentColor" stroke-width="1" stroke-dasharray="4 4" />
+                                    <circle cx="50" cy="50" r="30" stroke="currentColor" stroke-width="1.5" />
+                                    <path d="M15 50C15 69.33 30.67 85 50 85C69.33 85 85 69.33 85 50" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                                    <path d="M35 35L65 65" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                                    <path d="M65 35L35 65" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                                    <circle cx="50" cy="50" r="8" fill="currentColor" />
+                                </svg>
+                            </div>
 
-<!-- TEA -->
-<section id="tea" class="section">
-  <h2>Black Tea 🍃</h2>
+                            <div class="relative w-full h-24 overflow-hidden rounded-lg">
+  
+  <img id="slider-img" 
+      
+       class="w-full h-full object-cover transition-all duration-700">
 
-  <div class="box">
-    <img src="image/tea.jpg" alt="">
-    <div>
-      <h3>Premium Tea</h3>
-      <p>Natural taste and calm energy.</p>
+</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="py-24 bg-white text-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                
+                <!-- About Visual -->
+                <div class="space-y-4">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-gray-100 p-8 rounded-2xl flex flex-col justify-between border border-gray-200">
+                            <span class="text-brand-gold font-bold text-3xl">01</span>
+                            <div>
+                                <h4 class="font-bold text-gray-900 text-lg mb-1">Direct Source</h4>
+                                <p class="text-xs text-gray-500">Cultivated ethically in optimal soils</p>
+                            </div>
+                        </div>
+                        <div class="bg-brand-forest text-white p-8 rounded-2xl flex flex-col justify-between">
+                            <span class="text-brand-gold font-bold text-3xl">02</span>
+                            <div>
+                                <h4 class="font-bold text-white text-lg mb-1">Elite Standard</h4>
+                                <p class="text-xs text-emerald-200">Meeting EU certification metrics</p>
+                            </div>
+                        </div>
+                        <div class="bg-brand-dark text-white p-8 rounded-2xl flex flex-col justify-between col-span-2">
+                            <div class="flex justify-between items-center mb-4">
+                                <span class="text-brand-gold font-bold text-3xl">03</span>
+                                <span class="bg-brand-gold/15 text-brand-gold text-[10px] tracking-widest uppercase px-3 py-1 rounded-full font-bold">Bridging Markets</span>
+                            </div>
+                            <h4 class="font-bold text-white text-lg mb-1">Asia & Europe Gateway</h4>
+                            <p class="text-sm text-gray-300 font-light">Direct transport logistics and customs clearance in key trade cities.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- About Content -->
+                <div class="space-y-6 text-align-dynamic">
+                    <span class="text-brand-gold uppercase tracking-widest font-semibold text-sm" data-i18n="about">ABOUT US</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-950" data-i18n="aboutTitle">About Arkozia</h2>
+                    <p class="text-gray-600 leading-relaxed font-light text-base" data-i18n="aboutDesc1">
+                        Founded with a vision to connect the fertile lands and ancient valleys of Central Asia with the premium markets of Europe, Arkozia stands as a symbol of trust, purity, and sustainability.
+                    </p>
+                    <p class="text-gray-600 leading-relaxed font-light text-base" data-i18n="aboutDesc2">
+                        We specialize in direct-source partnership with local farming cooperatives, ensuring fair trade practices while maintaining the absolute highest standard of quality control from harvest to delivery.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- Mission Vision Section -->
+<section class="py-24 bg-brand-cream">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center mb-16">
+            <h2 data-i18n="philosophyTitle">Our Philosophy</h2>
+<p data-i18n="philosophyDesc">
+We believe in quality, trust, and long-term partnerships across global markets.
+</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+
+            <!-- Mission -->
+            <div class="bg-white p-8 rounded-2xl border border-gray-200 text-align-dynamic">
+               <h3 class="text-xl font-bold mb-4 text-brand-gold" data-i18n="missionTitle"></h3>
+
+<p class="text-gray-600 text-sm leading-relaxed" data-i18n="missionText"></p>
+               
+            </div>
+
+            <!-- Vision -->
+            <div class="bg-white p-8 rounded-2xl border border-gray-200 text-align-dynamic">
+            <h3 class="text-xl font-bold mb-4 text-brand-gold" data-i18n="visionTitle"></h3>
+
+<p class="text-gray-600 text-sm leading-relaxed" data-i18n="visionText"></p>
+                
+            </div>
+
+            <!-- Values -->
+            <div class="bg-white p-8 rounded-2xl border border-gray-200 text-align-dynamic">
+               
+               <h3 class="text-xl font-bold mb-4 text-brand-gold" data-i18n="valuesTitle"></h3>
+
+<ul class="text-gray-600 text-sm space-y-2">
+  <li data-i18n="value1"></li>
+  <li data-i18n="value2"></li>
+  <li data-i18n="value3"></li>
+  <li data-i18n="value4"></li>
+</ul>
+            </div>
+
+        </div>
     </div>
-  </div>
+</section>
+    <!-- Energy Production Video Section -->
+<section class="py-24 bg-brand-dark text-white">
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+
+            <!-- Text Side -->
+            <div class="space-y-6">
+                
+
+<h2 data-i18n="energyTitle" class="text-3xl sm:text-4xl font-extrabold"></h2>
+
+<p data-i18n="energyDesc" class="text-gray-300 leading-relaxed"></p>
+
+
+                
+                <p class="text-gray-400 text-sm">
+                    Transparent, clean and internationally certified workflow.
+                </p>
+            </div>
+
+            <!-- Video Side -->
+            <div class="relative aspect-square rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+
+                <video class="w-full h-full object-cover" autoplay muted loop playsinline>
+                    <source src="image/video_2026-06-13_13-46-59.mp4" type="video/mp4">
+                </video>
+
+                <div class="absolute inset-0 bg-black/30"></div>
+
+                <div class="absolute bottom-4 left-4 bg-black/60 text-white text-xs px-3 py-1 rounded-full backdrop-blur">
+                    Production Flow
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
 </section>
 
-<!-- CONTACT -->
-<section id="contact" class="section">
-  <h2>Contact</h2>
 
-  <input placeholder="Name">
-  <input placeholder="Email">
-  <textarea placeholder="Message"></textarea>
 
-  <button>Send</button>
 
-  <!-- SOCIAL -->
-  <div class="social">
-    <a href="https://wa.me/1234567890" target="_blank">WhatsApp</a>
-    <a href="https://instagram.com" target="_blank">Instagram</a>
-    <a href="https://facebook.com" target="_blank">Facebook</a>
-    <a href="https://tiktok.com" target="_blank">TikTok</a>
-  </div>
-</section>
 
-<script src="script.js"></script>
+
+    <!-- Products Portfolio Section -->
+    <section id="products" class="py-24 bg-brand-cream border-t border-b border-gray-200/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Section Header -->
+            <div class="text-center space-y-4 mb-16">
+                <span class="text-brand-gold uppercase tracking-widest font-semibold text-sm" data-i18n="products">PRODUCTS</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-950" data-i18n="prodTitle">Premium Portfolio</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto font-light text-sm sm:text-base" data-i18n="prodSubtitle">
+                    Sourced naturally, selected meticulously for the global connoisseur.
+                </p>
+            </div>
+
+            <!-- Products Grid -->
+            <div class="grid md:grid-cols-3 gap-8">
+                
+                <!-- Product 1: Saffron -->
+                <div class="bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
+                   <div class="h-78 w-full overflow-hidden">
+  <img src="image/new energy.jpg" class="w-full h-full object-cover" />
+</div>
+                        <!-- Abstract Design mimicking organic pattern -->
+                        <div class="absolute inset-0 bg-black opacity-15"></div>
+                        <svg class="w-16 h-16 text-brand-gold relative z-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                        </svg>
+                     
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col justify-between text-align-dynamic">
+                        <div class="space-y-3">
+                            <h3 class="text-xl font-bold text-gray-950" data-i18n="prod1">Arkozia powerfull energy Drink </h3>
+                            <p class="text-gray-600 text-sm leading-relaxed font-light" data-i18n="prod1Desc">
+                                Hand-harvested 
+                                
+                                Red Saffron, known for its intense aroma, rich color, and exceptional medicinal properties.
+                            </p>
+                        </div>
+                        <div class="pt-6 border-t border-gray-100 mt-6 flex justify-between items-center">
+                            <span class="text-xs text-brand-gold font-semibold uppercase tracking-wider">Premium Import</span>
+                            <span class="text-xs text-gray-500">Lab Certified</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2: Dried Fruits & Nuts -->
+                <div class="bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
+                    <div class="h-48 bg-gradient-to-br from-amber-800 to-yellow-800 flex items-center justify-center text-white relative">
+                        <div class="absolute inset-0 bg-black opacity-15"></div>
+                        <svg class="w-16 h-16 text-brand-gold relative z-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                        </svg>
+                        <span class="absolute bottom-4 left-4 bg-emerald-700 text-white font-extrabold text-xs px-3 py-1 rounded-full shadow">100% Organic</span>
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col justify-between text-align-dynamic">
+                        <div class="space-y-3">
+                            <h3 class="text-xl font-bold text-gray-950" data-i18n="prod2">Sun-Dried Fruits & Nuts</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed font-light" data-i18n="prod2Desc">
+                                Premium almonds, wild figs, and raisins dried naturally under the generous Asian sun, packed with nutrients.
+                            </p>
+                        </div>
+                        <div class="pt-6 border-t border-gray-100 mt-6 flex justify-between items-center">
+                            <span class="text-xs text-brand-gold font-semibold uppercase tracking-wider">Natural Dried</span>
+                            <span class="text-xs text-gray-500">Unprocessed</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3: Lapis Lazuli -->
+                <div class="bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
+                    <div class="h-48 bg-gradient-to-br from-blue-950 to-indigo-900 flex items-center justify-center text-white relative">
+                        <div class="absolute inset-0 bg-black opacity-15"></div>
+                        <svg class="w-16 h-16 text-brand-gold relative z-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5" />
+                        </svg>
+                        <span class="absolute bottom-4 left-4 bg-blue-800 text-white font-extrabold text-xs px-3 py-1 rounded-full shadow">Ethically Mined</span>
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col justify-between text-align-dynamic">
+                        <div class="space-y-3">
+                            <h3 class="text-xl font-bold text-gray-950" data-i18n="prod3">Lapis Lazuli & Gemstones</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed font-light" data-i18n="prod3Desc">
+                                Exquisite deep-blue Lapis Lazuli and raw emeralds sourced ethically from the ancient mines of the Hindu Kush.
+                            </p>
+                        </div>
+                        <div class="pt-6 border-t border-gray-100 mt-6 flex justify-between items-center">
+                            <span class="text-xs text-brand-gold font-semibold uppercase tracking-wider">Ethical Sourcing</span>
+                            <span class="text-xs text-gray-500">Raw & Finished</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificates Section -->
+    <section id="certificates" class="py-24 bg-brand-dark text-white relative overflow-hidden">
+        <!-- Background graphics -->
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#FAF9F6_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            
+            <!-- Section Header -->
+            <div class="text-center space-y-4 mb-16">
+                <span class="text-brand-gold uppercase tracking-widest font-semibold text-sm" data-i18n="certificates">CERTIFICATES</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white" data-i18n="certTitle">International Standards</h2>
+                <p class="text-gray-300 max-w-2xl mx-auto font-light text-sm sm:text-base" data-i18n="certSubtitle">
+                    Our commitment to quality is validated by globally recognized authorities.
+                </p>
+            </div>
+
+            <!-- Certificates Showcase -->
+            <div class="grid md:grid-cols-3 gap-8">
+                
+                <!-- Cert 1 -->
+                <div class="bg-gray-900/60 border border-brand-gold/20 p-8 rounded-2xl hover:border-brand-gold/60 transition-all duration-300 text-align-dynamic">
+                    <div class="w-12 h-12 bg-brand-gold/10 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6 text-brand-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2" data-i18n="cert1">ISO 22000 Certified</h3>
+                    <p class="text-gray-400 text-sm font-light leading-relaxed" data-i18n="cert1Desc">
+                        Highest standard in food safety management systems.
+                    </p>
+                </div>
+
+                <!-- Cert 2 -->
+                <div class="bg-gray-900/60 border border-brand-gold/20 p-8 rounded-2xl hover:border-brand-gold/60 transition-all duration-300 text-align-dynamic">
+                    <div class="w-12 h-12 bg-brand-gold/10 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6 text-brand-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2" data-i18n="cert2">EU Organic Standard</h3>
+                    <p class="text-gray-400 text-sm font-light leading-relaxed" data-i18n="cert2Desc">
+                        Certified organic production meeting strict European regulations.
+                    </p>
+                </div>
+
+                <!-- Cert 3 -->
+                <div class="bg-gray-900/60 border border-brand-gold/20 p-8 rounded-2xl hover:border-brand-gold/60 transition-all duration-300 text-align-dynamic">
+                    <div class="w-12 h-12 bg-brand-gold/10 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6 text-brand-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2" data-i18n="cert3">Fairtrade Partnership</h3>
+                    <p class="text-gray-400 text-sm font-light leading-relaxed" data-i18n="cert3Desc">
+                        Supporting local growers with ethical and sustainable trade.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 bg-white text-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 items-start">
+                
+                <!-- Contact Info Desk -->
+                <div class="space-y-8 text-align-dynamic">
+                    <div class="space-y-4">
+                        <span class="text-brand-gold uppercase tracking-widest font-semibold text-sm" data-i18n="contact">CONTACT</span>
+                        <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-950" data-i18n="contactTitle">Get in Touch</h2>
+                        <p class="text-gray-600 font-light" data-i18n="contactSubtitle">
+                            Connect with our global offices in Europe and Asia.
+                        </p>
+                    </div>
+
+                    <div class="space-y-4 text-sm">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-brand-gold/10 flex items-center justify-center text-brand-gold shrink-0">
+                                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                </svg>
+                            </div>
+                            <span class="font-medium text-gray-800">ArkoziaGroup.com</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-brand-gold/10 flex items-center justify-center text-brand-gold shrink-0">
+                                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                </svg>
+                            </div>
+                            <span class="font-medium text-gray-800">Rotterdam Gateway, Netherlands & Kabul, Afghanistan</span>
+                        </div>
+                    </div>
+
+                    <!-- Social Medias with Clean SVGs & Animations -->
+                    <div class="space-y-3">
+                        <h4 class="text-xs font-semibold uppercase tracking-wider text-gray-400">Join Our Network</h4>
+                        <div class="flex gap-4">
+                            <!-- Facebook -->
+                            <a href="https://facebook.com" target="_blank" class="w-12 h-12 bg-gray-100 hover:bg-brand-gold hover:text-white rounded-full flex items-center justify-center text-gray-600 transition-all duration-300 shadow-sm" aria-label="Facebook">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.75z"/>
+                                </svg>
+                            </a>
+                            <!-- Instagram -->
+                            <a href="https://instagram.com" target="_blank" class="w-12 h-12 bg-gray-100 hover:bg-brand-gold hover:text-white rounded-full flex items-center justify-center text-gray-600 transition-all duration-300 shadow-sm" aria-label="Instagram">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+                                </svg>
+                            </a>
+                            <!-- LinkedIn -->
+                            <a href="https://linkedin.com" target="_blank" class="w-12 h-12 bg-gray-100 hover:bg-brand-gold hover:text-white rounded-full flex items-center justify-center text-gray-600 transition-all duration-300 shadow-sm" aria-label="LinkedIn">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="bg-brand-cream border border-gray-200 p-8 rounded-2xl shadow-sm">
+                    <form id="contact-form" onsubmit="handleContactSubmit(event)" class="space-y-6">
+                        <div>
+                            <label class="block text-xs font-semibold uppercase tracking-wider text-gray-500 mb-2" data-i18n="namePl">Your Full Name</label>
+                            <input type="text" required class="w-full bg-white border border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-brand-gold transition-colors" data-i18n-placeholder="namePl" placeholder="Your Full Name">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold uppercase tracking-wider text-gray-500 mb-2" data-i18n="emailPl">Your Email Address</label>
+                            <input type="email" required class="w-full bg-white border border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-brand-gold transition-colors" data-i18n-placeholder="emailPl" placeholder="Your Email Address">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold uppercase tracking-wider text-gray-500 mb-2" data-i18n="msgPl">How can we help you?</label>
+                            <textarea rows="4" required class="w-full bg-white border border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-brand-gold transition-colors" data-i18n-placeholder="msgPl" placeholder="How can we help you?"></textarea>
+                        </div>
+                        
+                        <!-- Inline Success Message -->
+                        <div id="form-success" class="hidden bg-emerald-50 border border-emerald-200 text-emerald-800 p-4 rounded-lg text-sm text-center" data-i18n="successMsg">
+                            Thank you! Your inquiry has been received. Our global desk will contact you shortly.
+                        </div>
+
+                        <button type="submit" class="w-full bg-brand-dark hover:bg-brand-dark/90 text-white font-semibold py-3.5 rounded-lg transition-colors duration-300 shadow" data-i18n="sendBtn">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-dark text-gray-400 py-12 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
+            <span class="text-xl font-bold tracking-widest text-brand-gold">ARKOZIA</span>
+            <p class="text-xs font-light max-w-md mx-auto" data-i18n="footerText">
+                © 2026 Arkozia Group. All rights reserved. Cultivating trust across borders.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Script Utilities -->
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+            } else {
+                menu.classList.add('hidden');
+            }
+        }
+
+        function handleContactSubmit(event) {
+            event.preventDefault();
+            const form = document.getElementById('contact-form');
+            const successDiv = document.getElementById('form-success');
+            
+            // Hide the input form elements except the message
+            successDiv.classList.remove('hidden');
+            form.reset();
+            
+            // Automatically hide after 5 seconds
+            setTimeout(() => {
+                successDiv.classList.add('hidden');
+            }, 6000);
+        }
+    </script>
 </body>
 </html>
+
