@@ -97,8 +97,10 @@ value4: "Sustainable Sourcing",
                 
                 prodTitle: 'Premium Portfolio',
                 prodSubtitle: 'Sourced naturally, selected meticulously for the global connoisseur.',
-                prod1: 'Arkozya Eenrgy Drink',
-                prod1Desc: 'Hand-harvested Grade A Red Saffron, known for its intense aroma, rich color, and exceptional medicinal properties.',
+                prod1: 'Arkozya Energy Drink',
+                prod1Desc: 'A premium energy drink crafted for performance, focus, and endurance. Formulated with caffeine, natural extracts, and essential vitamins for sustained energy and mental clarity.',
+
+
                 prod2: 'Sun-Dried Fruits & Nuts',
                 prod2Desc: 'Premium almonds, wild figs, and raisins dried naturally under the generous Asian sun, packed with nutrients.',
                 prod3: 'Lapis Lazuli & Gemstones',
@@ -167,10 +169,10 @@ value4: "تامین پایدار",
 
                 prodTitle: 'محصولات استراتژیک',
                 prodSubtitle: 'تولید شده در دل طبیعت، گلچین‌شده با وسواس ویژه برای بازارهای جهانی.',
-                prod1: 'زعفران شاهانه ارگانیک',
+                prod1: 'نوشیدنی انرژی زای آرکوزیا',
                 prod1Desc: 'زعفران سرخ نگین با گرید صادراتی، برداشته شده با دست، دارای عطر فوق‌العاده، رنگ‌دهی بی‌نظیر و خواص درمانی استثنایی.',
                 prod2: 'میوه‌جات خشک و خسته‌باب',
-                prod2Desc: 'بادام ممتاز، انجیر کوهی و کشمش‌های طبیعی که در زیر آفتاب تابان آسیا خشک شده و سرشار از مواد مغذی هستند.',
+                prod2Desc: 'نوشیدنی انرژی‌زا با کیفیت صادراتی که برای افزایش انرژی، تمرکز و استقامت طراحی شده است. ترکیب شده با کافئین، عصاره‌های طبیعی و ویتامین‌های ضروری.',
                 prod3: 'لاجورد و سنگ‌های قیمتی',
                 prod3Desc: 'سنگ‌های نفیس لاجورد با رنگ آبی عمیق و زمردهای طبیعی استخراج شده با اصول اخلاقی از معادن باستانی هندوکش.',
                 
@@ -515,13 +517,13 @@ document.addEventListener("DOMContentLoaded", function () {
         
         <!-- Slides -->
         <img class="slide absolute inset-0 w-full h-full object-cover opacity-100 transition-opacity duration-700"
-             src="image/background.jpg.jpg">
+             src="images/background.jpg">
 
         <img class="slide absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-700"
-             src="image/energy.jpg">
+             src="images/energy.jpg">
 
         <img class="slide absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-700"
-             src="image/tea.jpg">
+             src="images/tea.jpg">
 
     </div>
 </div>
@@ -542,9 +544,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                             <div class="relative w-full h-24 overflow-hidden rounded-lg">
   
-  <img id="slider-img" 
-      
-       class="w-full h-full object-cover transition-all duration-700">
+
 
 </div>
                         </div>
@@ -667,16 +667,13 @@ We believe in quality, trust, and long-term partnerships across global markets.
 
 
                 
-                <p class="text-gray-400 text-sm">
-                    Transparent, clean and internationally certified workflow.
-                </p>
             </div>
 
             <!-- Video Side -->
             <div class="relative aspect-square rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
 
                 <video class="w-full h-full object-cover" autoplay muted loop playsinline>
-                    <source src="image/video_2026-06-13_13-46-59.mp4" type="video/mp4">
+                    <source src="images/video_2026-06-13_13-46-59.mp4" type="video/mp4">
                 </video>
 
                 <div class="absolute inset-0 bg-black/30"></div>
@@ -715,16 +712,17 @@ We believe in quality, trust, and long-term partnerships across global markets.
                 
                 <!-- Product 1: Saffron -->
                 <div class="bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
-                   <div class="h-78 w-full overflow-hidden">
-  <img src="image/new energy.jpg" class="w-full h-full object-cover" />
+                   <div class="h-64 w-full overflow-hidden">
+  <img src="images/5bb2bd14-b2da-4c4b-af47-c6fe4e457c15.jpg" class="w-full h-full object-contain" />
 </div>
                         <!-- Abstract Design mimicking organic pattern -->
                         <div class="absolute inset-0 bg-black opacity-15"></div>
-                        <svg class="w-16 h-16 text-brand-gold relative z-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                        </svg>
+                      
                      
                     </div>
+
+
+
                     <div class="p-6 flex-grow flex flex-col justify-between text-align-dynamic">
                         <div class="space-y-3">
                             <h3 class="text-xl font-bold text-gray-950" data-i18n="prod1">Arkozia powerfull energy Drink </h3>
@@ -743,13 +741,7 @@ We believe in quality, trust, and long-term partnerships across global markets.
 
                 <!-- Product 2: Dried Fruits & Nuts -->
                 <div class="bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
-                    <div class="h-48 bg-gradient-to-br from-amber-800 to-yellow-800 flex items-center justify-center text-white relative">
-                        <div class="absolute inset-0 bg-black opacity-15"></div>
-                        <svg class="w-16 h-16 text-brand-gold relative z-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
-                        </svg>
-                        <span class="absolute bottom-4 left-4 bg-emerald-700 text-white font-extrabold text-xs px-3 py-1 rounded-full shadow">100% Organic</span>
-                    </div>
+                  
                     <div class="p-6 flex-grow flex flex-col justify-between text-align-dynamic">
                         <div class="space-y-3">
                             <h3 class="text-xl font-bold text-gray-950" data-i18n="prod2">Sun-Dried Fruits & Nuts</h3>
