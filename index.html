@@ -44,7 +44,38 @@
             background: #D4AF37;
             border-radius: 4px;
         }
+
+
+        .lang-dropdown {
+    inset-inline-end: 0;
+}
+
+
     </style>
+
+
+ 
+    <!-- SEO -->
+    <meta name="description" content="Arkozia is an international trading company specializing in energy drinks, tea, saffron, spices, and natural products sourced from Asia to global markets.">
+
+    <meta name="keywords" content="Arkozia, energy drink, saffron export, tea export, spices, international trading">
+
+    <meta name="author" content="Arkozia Group">
+
+    <link rel="icon" type="image/png" href="/images/logo.png">
+
+
+
+    <meta property="og:title" content="Arkozia - Premium International Trading">
+<meta property="og:description" content="Energy drinks, tea, spices and natural products for global markets.">
+<meta property="og:image" content="https://arkoziagroup.com/images/preview.jpg">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://arkoziagroup.com">
+
+
+
+
+
 </head>
 <body class="bg-brand-cream text-gray-800 font-sans overflow-x-hidden">
 
@@ -170,7 +201,7 @@ value4: "تامین پایدار",
                 prodTitle: 'محصولات استراتژیک',
                 prodSubtitle: 'تولید شده در دل طبیعت، گلچین‌شده با وسواس ویژه برای بازارهای جهانی.',
                 prod1: 'نوشیدنی انرژی زای آرکوزیا',
-                prod1Desc: 'زعفران سرخ نگین با گرید صادراتی، برداشته شده با دست، دارای عطر فوق‌العاده، رنگ‌دهی بی‌نظیر و خواص درمانی استثنایی.',
+                prod1Desc: 'نوشیدنی انرژی‌زای پریمیوم با ترکیب کافئین، عصاره‌های طبیعی گیاهی و ویتامین‌های ضروری برای افزایش انرژی، تقویت تمرکز و بهبود عملکرد جسمی و ذهنی',
                 prod2: 'میوه‌جات خشک و خسته‌باب',
                 prod2Desc: 'نوشیدنی انرژی‌زا با کیفیت صادراتی که برای افزایش انرژی، تمرکز و استقامت طراحی شده است. ترکیب شده با کافئین، عصاره‌های طبیعی و ویتامین‌های ضروری.',
                 prod3: 'لاجورد و سنگ‌های قیمتی',
@@ -241,8 +272,8 @@ value4: "Approvisionnement durable",
 
                 prodTitle: 'Portefeuille Premium',
                 prodSubtitle: 'Sourcing naturel, sélectionné méticuleusement pour les connaisseurs du monde entier.',
-                prod1: 'Safran Royal Biologique',
-                prod1Desc: 'Safran rouge de catégorie A récolté à la main, réputé pour son arôme intense, sa couleur riche et ses propriétés médicinales exceptionnelles.',
+                prod1: 'Boisson Énergisante Arkozia',
+                prod1Desc: 'Une boisson énergisante premium formulée avec de la caféine, des extraits naturels de plantes et des vitamines essentielles pour augmenter l’énergie, améliorer la concentration et la performance physique et mentale.',
                 prod2: 'Fruits Secs et Noix',
                 prod2Desc: 'Amandes de première qualité, figues sauvages et raisins secs séchés naturellement sous le soleil généreux d\'Asie, riches en nutriments.',
                 prod3: 'Lapis-lazuli & Pierres Précieuses',
@@ -313,8 +344,8 @@ value4: "Duurzame inkoop",
 
                 prodTitle: 'Premium Portfolio',
                 prodSubtitle: 'Natuurlijk gewonnen, zorgvuldig geselecteerd voor de wereldwijde kenner.',
-                prod1: 'Biologische Royal Saffraan',
-                prod1Desc: 'Met de hand geoogste klasse A rode saffraan, bekend om zijn intense aroma, rijke kleur en uitzonderlijke medicinale eigenschappen.',
+                prod1: 'Arkozia Energiedrank',
+                prod1Desc: 'Een premium energiedrank samengesteld met cafeïne, natuurlijke plantenextracten en essentiële vitamines om energie te verhogen, focus te verbeteren en fysieke en mentale prestaties te ondersteunen.',
                 prod2: 'Zongedroogde Vruchten & Noten',
                 prod2Desc: 'Premium amandelen, wilde vijgen en rozijnen, natuurlijk gedroogd onder de gulle Aziatische zon, boordevol voedingsstoffen.',
                 prod3: 'Lapis Lazuli & Edelstenen',
@@ -342,6 +373,38 @@ value4: "Duurzame inkoop",
         };
 
         let currentLang = 'en'; // Default starting in Persian for the builder, can toggle to EN, FR, NL
+        document.addEventListener("DOMContentLoaded", () => {
+    setLanguage(currentLang);
+});
+
+
+
+function toggleLangMenu() {
+    const menu = document.getElementById("lang-menu");
+    menu.classList.toggle("hidden");
+}
+
+// بستن وقتی بیرون کلیک شود
+document.addEventListener("click", function (e) {
+    const menu = document.getElementById("lang-menu");
+
+    if (!e.target.closest(".relative")) {
+        menu.classList.add("hidden");
+    }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         function setLanguage(lang) {
             currentLang = lang;
@@ -387,42 +450,39 @@ value4: "Duurzame inkoop",
                     elem.style.textAlign = 'left';
                 }
             });
+
+
+
+            document.getElementById("lang-menu").classList.add("hidden");
         }
 
-        window.onload = function() {
-            setLanguage('en'); // Initialize to Persian
-        }
 
-const images = [
-  "images/product1.jpg",
-  "images/product2.jpg",
-  "images/product3.jpg",
-  "images/product4.jpg"
-];
+
 
 
     </script>
     <script>
 document.addEventListener("DOMContentLoaded", function () {
 
-    const slides = document.querySelectorAll(".slide");
+const slides = document.querySelectorAll(".slide");
 
-    if (!slides.length) return;
+if (!slides.length) return;
 
-    let index = 0;
+let index = 0;
 
-    setInterval(() => {
+function showSlide(i) {
+    slides.forEach((img, idx) => {
+        img.style.opacity = (idx === i) ? "1" : "0";
+        img.style.zIndex = (idx === i) ? "10" : "0";
+    });
+}
 
-        slides[index].classList.remove("opacity-100");
-        slides[index].classList.add("opacity-0");
+showSlide(index);
 
-        index = (index + 1) % slides.length;
-
-        slides[index].classList.remove("opacity-0");
-        slides[index].classList.add("opacity-100");
-
-    }, 3000);
-
+setInterval(() => {
+    index = (index + 1) % slides.length;
+    showSlide(index);
+}, 3000);
 });
 </script>
 
@@ -449,14 +509,21 @@ document.addEventListener("DOMContentLoaded", function () {
                 </nav>
 
                 <!-- Language Switcher & Mobile Menu Trigger -->
-                <div class="flex items-center gap-3">
-                    <div class="bg-gray-800 p-1 rounded-full flex gap-1 text-xs">
-                        <button onclick="setLanguage('fa')" data-lang="fa" class="lang-btn px-3 py-1 rounded-full transition-all duration-300 font-medium">FA</button>
-                        <button onclick="setLanguage('en')" data-lang="en" class="lang-btn px-3 py-1 rounded-full transition-all duration-300 font-medium">EN</button>
-                        <button onclick="setLanguage('fr')" data-lang="fr" class="lang-btn px-3 py-1 rounded-full transition-all duration-300 font-medium">FR</button>
-                        <button onclick="setLanguage('nl')" data-lang="nl" class="lang-btn px-3 py-1 rounded-full transition-all duration-300 font-medium">NL</button>
+                <div class="relative">
+                    <button onclick="toggleLangMenu()" class="px-4 py-2 bg-brand-dark text-white rounded-lg text-sm border border-brand-gold/30">
+                        Language
+                    </button>
+                
+                    <div id="lang-menu"
+                         class="hidden absolute mt-2 bg-brand-dark text-white rounded-xl shadow-lg w-44 overflow-hidden border border-brand-gold/20 lang-dropdown">
+                
+                        <button onclick="setLanguage('en')" class="w-full text-left px-4 py-2 hover:bg-brand-gold/10 hover:text-brand-gold transition">English</button>
+                        <button onclick="setLanguage('fa')" class="w-full text-left px-4 py-2 hover:bg-brand-gold/10 hover:text-brand-gold transition">فارسی</button>
+                        <button onclick="setLanguage('fr')" class="w-full text-left px-4 py-2 hover:bg-brand-gold/10 hover:text-brand-gold transition">Français</button>
+                        <button onclick="setLanguage('nl')" class="w-full text-left px-4 py-2 hover:bg-brand-gold/10 hover:text-brand-gold transition">Nederlands</button>
+                
                     </div>
-
+                </div>
                     <!-- Mobile Menu button -->
                     <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="md:hidden text-gray-400 hover:text-white focus:outline-none">
                         <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -516,8 +583,7 @@ document.addEventListener("DOMContentLoaded", function () {
     <div class="relative w-full max-w-sm aspect-square rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
         
         <!-- Slides -->
-        <img class="slide absolute inset-0 w-full h-full object-cover opacity-100 transition-opacity duration-700"
-             src="images/background.jpg">
+        
 
         <img class="slide absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-700"
              src="images/energy.jpg">
