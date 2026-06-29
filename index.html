@@ -88,6 +88,23 @@
 
 
 </head>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+    emailjs.init("6idIk4Dk3ubsH_Z1s");
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
 <body class="bg-brand-cream text-gray-800 font-sans overflow-x-hidden">
 
     <!-- Language & Navigation State Database -->
@@ -933,7 +950,7 @@ We believe in quality, trust, and long-term partnerships across global markets.
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                                 </svg>
                             </div>
-                            <span class="font-medium text-gray-800">ArkoziaGroup.com</span>
+                            <span class="font-medium text-gray-800">Arkoziaenergy.com</span>
                         </div>
                         <div class="flex items-center gap-3">
                             <div class="w-10 h-10 rounded-full bg-brand-gold/10 flex items-center justify-center text-brand-gold shrink-0">
@@ -942,7 +959,7 @@ We believe in quality, trust, and long-term partnerships across global markets.
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                                 </svg>
                             </div>
-                            <span class="font-medium text-gray-800">Rotterdam Gateway, Netherlands & Kabul, Afghanistan</span>
+                            <span class="font-medium text-gray-800">Kabul, Afghanistan</span>
                         </div>
                     </div>
 
@@ -951,7 +968,7 @@ We believe in quality, trust, and long-term partnerships across global markets.
                         <h4 class="text-xs font-semibold uppercase tracking-wider text-gray-400">Join Our Network</h4>
                         <div class="flex gap-4">
                             <!-- Facebook -->
-                            <a href="https://facebook.com" target="_blank" class="w-12 h-12 bg-gray-100 hover:bg-brand-gold hover:text-white rounded-full flex items-center justify-center text-gray-600 transition-all duration-300 shadow-sm" aria-label="Facebook">
+                            <a href="https://www.facebook.com/share/19C73cM9Sn/" target="_blank" class="w-12 h-12 bg-gray-100 hover:bg-brand-gold hover:text-white rounded-full flex items-center justify-center text-gray-600 transition-all duration-300 shadow-sm" aria-label="Facebook">
                                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                                     <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.75z"/>
                                 </svg>
@@ -977,15 +994,15 @@ We believe in quality, trust, and long-term partnerships across global markets.
                     <form id="contact-form" onsubmit="handleContactSubmit(event)" class="space-y-6">
                         <div>
                             <label class="block text-xs font-semibold uppercase tracking-wider text-gray-500 mb-2" data-i18n="namePl">Your Full Name</label>
-                            <input type="text" required class="w-full bg-white border border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-brand-gold transition-colors" data-i18n-placeholder="namePl" placeholder="Your Full Name">
+                            <input type="text" name="from_name" required class="w-full bg-white border border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-brand-gold transition-colors" data-i18n-placeholder="namePl" placeholder="Your Full Name">
                         </div>
                         <div>
                             <label class="block text-xs font-semibold uppercase tracking-wider text-gray-500 mb-2" data-i18n="emailPl">Your Email Address</label>
-                            <input type="email" required class="w-full bg-white border border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-brand-gold transition-colors" data-i18n-placeholder="emailPl" placeholder="Your Email Address">
+                            <input type="email"  name="reply_to" required class="w-full bg-white border border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-brand-gold transition-colors" data-i18n-placeholder="emailPl" placeholder="Your Email Address">
                         </div>
                         <div>
                             <label class="block text-xs font-semibold uppercase tracking-wider text-gray-500 mb-2" data-i18n="msgPl">How can we help you?</label>
-                            <textarea rows="4" required class="w-full bg-white border border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-brand-gold transition-colors" data-i18n-placeholder="msgPl" placeholder="How can we help you?"></textarea>
+                            <textarea rows="4" name="message" required class="w-full bg-white border border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-brand-gold transition-colors" data-i18n-placeholder="msgPl" placeholder="How can we help you?"></textarea>
                         </div>
                         
                         <!-- Inline Success Message -->
@@ -1025,20 +1042,31 @@ We believe in quality, trust, and long-term partnerships across global markets.
         }
 
         function handleContactSubmit(event) {
-            event.preventDefault();
-            const form = document.getElementById('contact-form');
-            const successDiv = document.getElementById('form-success');
-            
-            // Hide the input form elements except the message
-            successDiv.classList.remove('hidden');
-            form.reset();
-            
-            // Automatically hide after 5 seconds
-            setTimeout(() => {
-                successDiv.classList.add('hidden');
-            }, 6000);
-        }
+    event.preventDefault();
+
+    emailjs.sendForm(
+        "service_arkozia90",
+        "template_f62j93b",
+        event.target
+    )
+    .then(() => {
+        document.getElementById("form-success").classList.remove("hidden");
+        event.target.reset();
+
+        setTimeout(() => {
+            document.getElementById("form-success").classList.add("hidden");
+        }, 5000);
+    })
+    .catch((error) => {
+        alert("Email failed: " + JSON.stringify(error));
+    });
+}
     </script>
+
+
+
+
+
 </body>
 </html>
 
